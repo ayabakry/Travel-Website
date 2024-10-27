@@ -12,6 +12,7 @@ module.exports = {
        bodycolor:"#858585",
         white:"#FFFFFF"   ,
         form:"#8EC640",
+        gray:"#E8E8E8"
       },
     },
   },

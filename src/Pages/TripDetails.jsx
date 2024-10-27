@@ -1,22 +1,29 @@
-function TripDetails() {
-  const seats = [
-    { number: 9, status: "available" },
-    { number: 10, status: "available" },
-    { number: null, status: "unavailable" },
-    { number: 14, status: "waiting" },
-    { number: null, status: "unavailable" },
-    { number: 17, status: "available" },
-    { number: 22, status: "available" },
-    { number: null, status: "unavailable" },
-    { number: 8, status: "waiting" },
-    { number: 12, status: "available" },
-    { number: 28, status: "available" },
-    { number: null, status: "unavailable" },
-    { number: 29, status: "available" },
-    { number: null, status: "unavailable" },
-    { number: 31, status: "available" },
-    { number: 33, status: "available" },
-  ];
+import React, { useState } from "react";
+
+function TripDetails({ totalSeats }) {
+  const initialSeats = Array.from({ length: totalSeats }, (_, index) => ({
+    number: index + 1,
+    status: "available",
+  }));
+
+  const [seats, setSeats] = useState(initialSeats);
+
+  const handleSeatClick = (seatNumber) => {
+    setSeats((prevSeats) =>
+      prevSeats.map((seat) =>
+        seat.number === seatNumber
+          ? {
+              ...seat,
+              status: seat.status === "available" ? "selected" : "available",
+            }
+          : seat
+      )
+    );
+  };
+
+  const isSmallBus = totalSeats === 14;
+  const isLargeBus = totalSeats > 14;
+
   return (
     <>
       <div className="flex space-x-5">
@@ -84,45 +91,192 @@ function TripDetails() {
       </div>
 
       <div className="flex flex-col md:flex-row items-start justify-center  space-y-5 md:space-y-0 md:space-x-8 p-4">
-        <div className="flex flex-col items-center p-4 md:ml-[20%] bg-gray-100 rounded-lg border border-gray-300 max-w-xs md:order-1">
-          {/* Driver Icon */}
-          <div className="flex items-center justify-between w-full mb-4 px-4">
-            <div className="text-2xl">🚌</div>
-            <div className="flex items-center space-x-2">
-              <div className="flex items-center">
-                <div className="w-4 h-4 bg-blue-500 rounded-sm mr-1"></div>
-                <span className="text-sm">Available</span>
+        <div className="p-4 m-2 bg-white rounded-3xl shadow w-80 order-1">
+          <div className="bg-gray mt-4 rounded-lg ">
+            <div class="flex items-center justify-end">
+              <div className="flex flex-col pb-2 pr-2 order-1">
+                <div className="text-right order-1 p-2 items-center inline-flex">
+                  <p className="inline-flex items-center mr-2 text-sm">
+                    <svg
+                      className="order-1 ml-2"
+                      width="25"
+                      height="24"
+                      viewBox="0 0 25 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="1.5"
+                        y="1"
+                        width="22"
+                        height="22"
+                        rx="3"
+                        fill="white"
+                      />
+                      <rect
+                        x="1.5"
+                        y="1"
+                        width="22"
+                        height="22"
+                        rx="3"
+                        stroke="#05ABEE"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    متحدد
+                  </p>
+                  <p className="inline-flex items-center ml-12 text-sm">
+                    <svg
+                      className="order-1 ml-1"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 25 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="0.5"
+                        width="24"
+                        height="24"
+                        rx="4"
+                        fill="#05ABEE"
+                      />
+                    </svg>
+                    متاح
+                  </p>
+                </div>
+                <div className="text-right order-1 p-1 items-center inline-flex">
+                  <p className="inline-flex items-center  text-sm ">
+                    <svg
+                      className="order-1 ml-1"
+                      width="25"
+                      height="24"
+                      viewBox="0 0 25 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="0.5"
+                        width="24"
+                        height="24"
+                        rx="4"
+                        fill="#C8C8C8"
+                      />
+                      <path
+                        d="M11.588 12.424L7.148 6.136H9.548L12.86 10.984L16.148 6.136H18.524L14.084 12.424L18.764 19H16.364L12.86 13.864L9.308 19H6.932L11.588 12.424Z"
+                        fill="white"
+                      />
+                    </svg>
+                    غير متاح
+                  </p>
+                  <p className="inline-flex items-center text-sm  ml-[8%]">
+                    <svg
+                      className="order-1 ml-1"
+                      width="25"
+                      height="24"
+                      viewBox="0 0 25 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="0.5"
+                        width="24"
+                        height="24"
+                        rx="4"
+                        fill="#FAB341"
+                      />
+                    </svg>
+                    في الانتظار
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center">
-                <div className="w-4 h-4 bg-orange-400 rounded-sm mr-1"></div>
-                <span className="text-sm">Waiting</span>
-              </div>
-              <div className="flex items-center">
-                <div className="w-4 h-4 bg-gray-300 rounded-sm mr-1"></div>
-                <span className="text-sm">Unavailable</span>
+
+              <div class="p-2 bg-white mr-6 ">
+                <svg
+                  width="41"
+                  height="40"
+                  viewBox="0 0 41 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <mask id="path-1-inside-1_254_1747" fill="white">
+                    <path d="M40.5 20C40.5 14.6957 38.3929 9.60859 34.6421 5.85786C30.8914 2.10714 25.8043 4.00466e-07 20.5 0C15.1957 -4.00466e-07 10.1086 2.10714 6.35787 5.85786C2.60714 9.60859 0.500001 14.6957 0.5 20L20.5 20H40.5Z" />
+                  </mask>
+                  <path
+                    d="M40.5 20C40.5 14.6957 38.3929 9.60859 34.6421 5.85786C30.8914 2.10714 25.8043 4.00466e-07 20.5 0C15.1957 -4.00466e-07 10.1086 2.10714 6.35787 5.85786C2.60714 9.60859 0.500001 14.6957 0.5 20L20.5 20H40.5Z"
+                    stroke="#8EC640"
+                    stroke-width="6"
+                    mask="url(#path-1-inside-1_254_1747)"
+                  />
+                  <mask id="path-2-inside-2_254_1747" fill="white">
+                    <path d="M40.5 20C40.5 16.0444 39.327 12.1776 37.1294 8.8886C34.9318 5.59961 31.8082 3.03616 28.1537 1.52241C24.4991 0.00865667 20.4778 -0.38741 16.5982 0.384294C12.7186 1.156 9.15491 3.06081 6.35786 5.85786C3.56081 8.65491 1.656 12.2186 0.884294 16.0982C0.11259 19.9778 0.508657 23.9991 2.02241 27.6537C3.53616 31.3082 6.09961 34.4318 9.3886 36.6294C12.6776 38.827 16.5444 40 20.5 40V20H40.5Z" />
+                  </mask>
+                  <path
+                    d="M40.5 20C40.5 16.0444 39.327 12.1776 37.1294 8.8886C34.9318 5.59961 31.8082 3.03616 28.1537 1.52241C24.4991 0.00865667 20.4778 -0.38741 16.5982 0.384294C12.7186 1.156 9.15491 3.06081 6.35786 5.85786C3.56081 8.65491 1.656 12.2186 0.884294 16.0982C0.11259 19.9778 0.508657 23.9991 2.02241 27.6537C3.53616 31.3082 6.09961 34.4318 9.3886 36.6294C12.6776 38.827 16.5444 40 20.5 40V20H40.5Z"
+                    stroke="#8EC640"
+                    stroke-width="6"
+                    mask="url(#path-2-inside-2_254_1747)"
+                  />
+                  <mask id="path-3-inside-3_254_1747" fill="white">
+                    <path d="M0.5 20C0.5 16.0444 1.67298 12.1776 3.87061 8.8886C6.06824 5.59961 9.19181 3.03616 12.8463 1.52241C16.5009 0.00865667 20.5222 -0.38741 24.4018 0.384294C28.2814 1.156 31.8451 3.06081 34.6421 5.85786C37.4392 8.65491 39.344 12.2186 40.1157 16.0982C40.8874 19.9778 40.4913 23.9991 38.9776 27.6537C37.4638 31.3082 34.9004 34.4318 31.6114 36.6294C28.3224 38.827 24.4556 40 20.5 40V20H0.5Z" />
+                  </mask>
+                  <path
+                    d="M0.5 20C0.5 16.0444 1.67298 12.1776 3.87061 8.8886C6.06824 5.59961 9.19181 3.03616 12.8463 1.52241C16.5009 0.00865667 20.5222 -0.38741 24.4018 0.384294C28.2814 1.156 31.8451 3.06081 34.6421 5.85786C37.4392 8.65491 39.344 12.2186 40.1157 16.0982C40.8874 19.9778 40.4913 23.9991 38.9776 27.6537C37.4638 31.3082 34.9004 34.4318 31.6114 36.6294C28.3224 38.827 24.4556 40 20.5 40V20H0.5Z"
+                    stroke="#8EC640"
+                    stroke-width="6"
+                    mask="url(#path-3-inside-3_254_1747)"
+                  />
+                  <circle
+                    cx="7"
+                    cy="7"
+                    r="5"
+                    transform="matrix(-1 0 0 1 27.5 13)"
+                    fill="#F76570"
+                    stroke="#8EC640"
+                    stroke-width="4"
+                  />
+                </svg>
               </div>
             </div>
           </div>
 
-          {/* Seat Layout */}
-          <div className="grid grid-cols-5 gap-2">
-            {seats.map((seat, index) => (
-              <div
-                key={index}
-                className={`w-10 h-10 flex items-center justify-center rounded-md ${
-                  seat.status === "available"
-                    ? "bg-blue-500 text-white"
-                    : seat.status === "waiting"
-                    ? "bg-orange-400 text-white"
-                    : "bg-gray-300 text-gray-400"
-                }`}
-              >
-                {seat.number || "X"}
-              </div>
-            ))}
-          </div>
-        </div>
+          <br></br>
+          <div className="flex justify-end bg-gray">
+            <div
+              className={`grid gap-y-2 gap-x-40 justify-center mr-6 text-xl p-4 rounded-lg ${
+                isSmallBus || isLargeBus ? "grid-cols-2" : "grid-cols-2"
+              }`}
+            >
+              {seats.map((seat, index) => {
+                const seatClass =
+                  seat.status === "sold-out"
+                    ? "bg-red-500 text-gray"
+                    : seat.status === "available"
+                    ? "bg-gray border border-black"
+                    : seat.status === "pending"
+                    ? "bg-orange-500 text-gray"
+                    : "bg-primaryTitle text-gray";
 
+                return (
+                  <React.Fragment key={`seat-${index}`}>
+                    <div
+                      className={`flex items-center justify-center m-2 w-12 h-12 rounded-md cursor-pointer font-bold ${seatClass}`}
+                      onClick={() => handleSeatClick(seat.number)}
+                    >
+                      {seat.number}
+                    </div>
+                    {/* Aisle space after every 2 seats */}
+                    {/* {(index + 1) % 2 === 0 && <div className="w-[30px] h-1" />} */}
+                  </React.Fragment>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* <button className="mt-4 px-4 py-2 bg-red-600 text-white rounded-md font-semibold hover:bg-red-700">
+            Confirm Booking
+          </button> */}
+        </div>
         <div className="flex flex-col-reverse md:flex-col items-start space-y-5 md:space-y-4 p-4 ">
           <div className="bg-white rounded-3xl shadow w-80 mt-4 order-1 ">
             <p className="mb-5 text-base text-black mt-4  text-center">

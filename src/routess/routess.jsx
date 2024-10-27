@@ -9,13 +9,15 @@ import TripDetails from "../Pages/TripDetails";
 function routes() {
   return (
     // <Provider store={store}>
-      <Router>
-        <Routes>
-          <Route path="/:lang?/" element={<Travelcard />} />
-          <Route path="/:lang?/trip-details" element={<TripDetails/>} />
-          
-        </Routes>
-      </Router>
+    <Router>
+      <Routes>
+        <Route path="/:lang?/" element={<Travelcard />} />
+        <Route
+          path="/:lang?/trip-details"
+          element={<TripDetails totalSeats={14} />}
+        />
+      </Routes>
+    </Router>
     // </Provider>
   );
 }

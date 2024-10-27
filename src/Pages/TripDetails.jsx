@@ -243,19 +243,17 @@ function TripDetails({ totalSeats }) {
           <br></br>
           <div className="flex justify-end bg-gray">
             <div
-              className={`grid gap-y-2 gap-x-40 justify-center mr-6 text-xl p-4 rounded-lg ${
+              className={`grid gap-y-2 gap-x-40 justify-center mr-6 md:text-xl p-4 rounded-lg ${
                 isSmallBus || isLargeBus ? "grid-cols-2" : "grid-cols-2"
               }`}
             >
               {seats.map((seat, index) => {
                 const seatClass =
-                  seat.status === "sold-out"
-                    ? "bg-red-500 text-gray"
-                    : seat.status === "available"
-                    ? "bg-gray border border-black"
+                  seat.status === "available"
+                    ? "bg-primaryTitle text-white" // Blue background for available seats
                     : seat.status === "pending"
-                    ? "bg-orange-500 text-gray"
-                    : "bg-primaryTitle text-gray";
+                    ? "bg-orange-500 text-white" // Orange background for pending seats
+                    : "border border-2 border-primaryTitle bg-white text-primaryTitle"; // Gray background for selected seats
 
                 return (
                   <React.Fragment key={`seat-${index}`}>
@@ -344,7 +342,7 @@ function TripDetails({ totalSeats }) {
               <div className="flex items-center relative">
                 <input
                   type="text"
-                  className="text-right rounded-3xl border border-gray-300 text-gray-900 pr-12 block flex-1 min-w-0 w-full text-sm p-2.5 placeholder-gray-500 focus:text-price focus:border-price focus:outline-none"
+                  className="text-right rounded-3xl bg-gray text-gray-900 pr-12 block flex-1 min-w-0 w-full text-sm p-2.5 placeholder-gray-500 focus:text-price focus:border focus:border-price focus:outline-none focus:bg-white"
                   placeholder="name@email.com"
                 />
                 <span className="absolute right-3 flex items-center">
@@ -379,7 +377,7 @@ function TripDetails({ totalSeats }) {
               <div className="flex items-center relative">
                 <input
                   type="text"
-                  className="text-right rounded-3xl border border-gray-300 text-gray-900 pr-12 block flex-1 min-w-0 w-full text-sm p-2.5 placeholder-gray-500 focus:text-price focus:border-price focus:outline-none"
+                  className="text-right rounded-3xl bg-gray text-gray-900 pr-12 block flex-1 min-w-0 w-full text-sm p-2.5 placeholder-gray-500 focus:text-price focus:border focus:border-price focus:outline-none focus:bg-white"
                   placeholder="إدخل رقم الهاتف الخاص بك هنا"
                 />
                 <span className="absolute right-3 flex items-center">

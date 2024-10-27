@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function TripDetails({ totalSeats }) {
   const initialSeats = Array.from({ length: totalSeats }, (_, index) => ({
@@ -241,9 +242,9 @@ function TripDetails({ totalSeats }) {
           </div>
 
           <br></br>
-          <div className="flex justify-end bg-gray">
+          <div className="flex justify-end bg-gray rounded-lg">
             <div
-              className={`grid gap-y-2 gap-x-40 justify-center mr-6 md:text-xl p-4 rounded-lg ${
+              className={`grid gap-y-2 gap-x-40 justify-center mr-6 md:text-xl p-4  ${
                 isSmallBus || isLargeBus ? "grid-cols-2" : "grid-cols-2"
               }`}
             >
@@ -394,17 +395,19 @@ function TripDetails({ totalSeats }) {
                       stroke-width="1.5"
                       stroke-miterlimit="10"
                     />
-                  </svg>{" "}
+                  </svg>
                 </span>
               </div>
 
               <br />
-              <button
-                type="submit"
-                className="w-full text-white bg-price font-medium rounded-3xl text-lg px-5 py-2.5 text-center"
-              >
-                سجل الان
-              </button>
+              <Link to="/payment">
+                <button
+                  type="submit"
+                  className="w-full text-white bg-price font-medium rounded-3xl text-lg px-5 py-2.5 text-center"
+                >
+                  سجل الان
+                </button>
+              </Link>
             </form>
           </div>
         </div>

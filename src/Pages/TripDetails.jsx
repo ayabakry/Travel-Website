@@ -35,7 +35,10 @@ function TripDetails({ totalSeats }) {
                 شرم الشيخ
               </h5>
               <p className="mb-5 text-base text-primaryTitle md:mt-4 sm:text-lg text-right">
-                فندق تونس بيراميدز
+                من 17 / 11 / 2024 إلي 21 / 11 / 2024
+              </p>
+              <p className="mb-5 text-base text-primaryTitle md:mt-[-1%] sm:text-lg text-right">
+                4 أيام - 3 ليالي
               </p>
             </div>
             <div className="bg-primaryTitle rounded-lg shadow p-2 m-5 md:w-[10%] w-[50%] text-2xl">

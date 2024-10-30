@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Travelcard from "../Travel-User/Components/Travelcard";
 import TripDetails from "../Travel-User/Pages/TripDetails";
 import PaymwntPage from "../Travel-User/Pages/PaymentPage";
+import SignIn from "../Travel-Admin/PagesAdmin/SignIn";
 
 // import { Provider } from "react-redux";
 // import store from "../Components/ReduxStore";
@@ -13,6 +14,7 @@ function routes() {
     <Router>
       <Routes>
         <Route path="/:lang?/" element={<Travelcard />} />
+        <Route path="/:lang?/sign-in" element={<SignIn />} />
         <Route
           path="/:lang?/trip-details"
           element={<TripDetails totalSeats={14} />}

@@ -136,9 +136,9 @@ function TripDetails({ totalSeats }) {
                 <div class="flex items-center justify-end">
                   <div className="flex flex-col pb-2 pr-2 order-1">
                     <div className="text-right order-1 p-2 items-center inline-flex">
-                      <p className="inline-flex items-center mr-2 text-sm">
+                      <p className="inline-flex items-center text-sm">
                         <svg
-                          className="order-1 ml-2"
+                          className="order-1 ml-2 mr-1"
                           width="25"
                           height="24"
                           viewBox="0 0 25 24"
@@ -163,7 +163,7 @@ function TripDetails({ totalSeats }) {
                             stroke-width="2"
                           />
                         </svg>
-                        متحدد
+                        متاح
                       </p>
                       <p className="inline-flex items-center ml-12 text-sm">
                         <svg
@@ -182,13 +182,13 @@ function TripDetails({ totalSeats }) {
                             fill="#05ABEE"
                           />
                         </svg>
-                        متاح
+                        أختيارك
                       </p>
                     </div>
                     <div className="text-right order-1 p-1 items-center inline-flex">
                       <p className="inline-flex items-center  text-sm ">
                         <svg
-                          className="order-1 ml-1"
+                          className="order-1 ml-1 "
                           width="25"
                           height="24"
                           viewBox="0 0 25 24"
@@ -475,7 +475,7 @@ function TripDetails({ totalSeats }) {
                   <div class="flex items-center justify-center">
                     <label
                       for="file_input"
-                      class="w-full pt-2 pb-2 order-1 ml-2 text-primaryTitle  border-2 border-primaryTitle rounded-full text-center cursor-pointer transition duration-300 ease-in-out "
+                      class="w-full text-sm pt-2 pb-2 order-1 ml-2 text-primaryTitle  border-2 border-primaryTitle rounded-full text-center cursor-pointer transition duration-300 ease-in-out "
                     >
                       صورة البطاقة وش
                     </label>
@@ -483,7 +483,7 @@ function TripDetails({ totalSeats }) {
 
                     <label
                       for="file_input"
-                      class="w-full pt-2 pb-2 text-primaryTitle  border-2 border-primaryTitle rounded-full text-center cursor-pointer transition duration-300 ease-in-out "
+                      class="w-full pt-2 pb-2 text-sm text-primaryTitle  border-2 border-primaryTitle rounded-full text-center cursor-pointer transition duration-300 ease-in-out "
                     >
                       صورة البطاقة ضهر
                     </label>

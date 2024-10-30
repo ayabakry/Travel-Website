@@ -10,7 +10,7 @@ function Travelcard() {
         </h1>
         <Link to="/trip-details">
           <div className="flex justify-end px-8 py-8">
-            <div className="max-w-sm bg-white rounded-3xl shadow ">
+            <div className="max-w-sm bg-white rounded-3xl  ">
               <img
                 className="rounded-tl-3xl rounded-tr-3xl w-full"
                 src={imgcard}

@@ -29,8 +29,38 @@ function TripDetails({ totalSeats }) {
     <>
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="w-full md:max-w-[80%]">
+          <Link to="/">
+            <p className="text-backbutton text-right text-xl m-6 flex items-center justify-end">
+              رجوع
+              <svg
+                className="mt-2.5 ml-1"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.4302 5.93018L20.5002 12.0002L14.4302 18.0702"
+                  stroke="#F76570"
+                  stroke-width="1.5"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M3.5 12H20.33"
+                  stroke="#F76570"
+                  stroke-width="1.5"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </p>
+          </Link>
           <div className=" flex space-x-5">
-            <div className="bg-white rounded-lg shadow p-2 m-5 w-[90%] order-1 ">
+            <div className="bg-white rounded-lg shadow p-4 m-5 w-[90%] order-1 ">
               <h5 className="mb-2 md:text-4xl font-bold text-secondarybutton text-right ">
                 شرم الشيخ
               </h5>
@@ -41,11 +71,11 @@ function TripDetails({ totalSeats }) {
                 4 أيام - 3 ليالي
               </p>
             </div>
-            <div className="bg-primaryTitle rounded-lg shadow p-2 m-5 md:w-[10%] w-[50%] text-2xl">
-              <h5 className="mb-2 md:text-4xl font-bold text-white text-center">
+            <div className="bg-primaryTitle rounded-lg shadow p-2 m-8 md:w-[10%] w-[50%] text-2xl">
+              <h5 className="mb-2 md:text-5xl font-bold text-white text-center">
                 80
               </h5>
-              <p className="mb-5 text-base text-white md:mt-4 sm:text-lg text-center">
+              <p className="mb-5 md:text-2xl text-white md:mt-4 sm:text-lg text-center">
                 جنية مصري
               </p>
             </div>

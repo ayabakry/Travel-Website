@@ -14,6 +14,7 @@ module.exports = {
         form:"#8EC640",
         gray:"#F5F5F5",
         placeholder:"#DADADA",
+        backbutton:"#F76570",
       },
     },
   },

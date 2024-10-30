@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Travelcard from "../Components/Travelcard";
-import TripDetails from "../Pages/TripDetails";
-import PaymwntPage from "../Pages/PaymentPage";
+import Travelcard from "../Travel-User/Components/Travelcard";
+import TripDetails from "../Travel-User/Pages/TripDetails";
+import PaymwntPage from "../Travel-User/Pages/PaymentPage";
 
 // import { Provider } from "react-redux";
 // import store from "../Components/ReduxStore";
@@ -16,7 +16,7 @@ function routes() {
         <Route
           path="/:lang?/trip-details"
           element={<TripDetails totalSeats={14} />}
-        />{" "}
+        />
         <Route path="/:lang?/payment" element={<PaymwntPage />} />
       </Routes>
     </Router>

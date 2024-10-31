@@ -6,6 +6,13 @@ function SignIn() {
     <div class="">
       <div class="min-h-screen flex flex-col items-center justify-center">
         <div class="grid md:grid-cols-2  bg-gray1 items-center gap-4 max-md:gap-8 max-w-6xl max-md:max-w-lg w-full p-4 m-4 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md">
+          <div className="md:h-full rounded-xl lg:p-12 p-8 ">
+            <img
+              src={signinImage}
+              className="w-full h-full object-over rounded-xl "
+              alt="login-image"
+            />
+          </div>
           <div class=" md:max-w-md bg-white w-full px-4 py-4 md:m-10 border border-2 border-primaryTitle rounded-3xl">
             <form>
               <div>
@@ -101,14 +108,6 @@ function SignIn() {
                 </button>
               </div>
             </form>
-          </div>
-
-          <div class="md:h-full rounded-xl lg:p-12 p-8">
-            <img
-              src={signinImage}
-              class="w-full h-full object-over rounded-xl "
-              alt="login-image"
-            />
           </div>
         </div>
       </div>

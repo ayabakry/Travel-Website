@@ -5,6 +5,7 @@ import TripDetails from "../Travel-User/Pages/TripDetails";
 import PaymwntPage from "../Travel-User/Pages/PaymentPage";
 import SignIn from "../Travel-Admin/PagesAdmin/SignIn";
 import Sidebar from "../Travel-Admin/ComponentAdmin/Sidebar";
+import AddTravel from "../Travel-Admin/PagesAdmin/AddTravel";
 
 // import { Provider } from "react-redux";
 // import store from "../Components/ReduxStore";
@@ -21,7 +22,8 @@ function routes() {
           element={<TripDetails totalSeats={14} />}
         />
         <Route path="/:lang?/payment" element={<PaymwntPage />} />
-        <Route path="/:lang?/dashboard" element={<Sidebar />} />
+        {/* <Route path="/:lang?/dashboard" element={<Sidebar />} /> */}
+        <Route path="/:lang?/add-travel" element={<AddTravel />} />
       </Routes>
     </Router>
     // </Provider>

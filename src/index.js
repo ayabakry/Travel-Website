@@ -4,12 +4,13 @@ import './index.css';
 import Routess from './routess/routess';
 
 import reportWebVitals from './reportWebVitals';
+import Sidebar from './Travel-Admin/ComponentAdmin/Sidebar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
  <Routess /> 
-    
+    <Sidebar/>
   </React.StrictMode>
 );
 

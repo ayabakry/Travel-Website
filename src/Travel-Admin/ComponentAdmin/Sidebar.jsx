@@ -94,7 +94,7 @@ function Sidebar() {
           <ul class="space-y-2 font-medium">
             <li>
               <a
-                href="/add-news"
+                href="/add-travel"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-black  "
               >
                 <svg
@@ -118,7 +118,7 @@ function Sidebar() {
             </li>
             <li>
               <a
-                href="/add-annoncement"
+                href="/payment-admin"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-black  "
               >
                 <svg

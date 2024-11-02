@@ -1,4 +1,3 @@
-import { Lock, Mail } from "lucide-react";
 import signinImage from "../adminImgs/travelsignin.png";
 
 function SignIn() {

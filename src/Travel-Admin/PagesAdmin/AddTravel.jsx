@@ -151,8 +151,8 @@ function AddTravel() {
           تفاصيل بطاقة الرحلات
         </p>
         <form
-          className="rounded-3xl mx-auto  pl-10 ml-8 pt-5 pr-1 pb-5  "
-          //   onSubmit={handleAddNews}
+          className="rounded-3xl mx-auto  pl-10 ml-8 pt-5  pb-5  "
+        //   onSubmit={handleAddNews}
         >
           <div className=" flex ">
             <div className=" rounded-lg  md:w-[40%] ml-4 order-1 ">
@@ -186,50 +186,132 @@ function AddTravel() {
               />
             </div>
           </div>
-          <div className="mb-5">
-            <label
-              htmlFor="content-ar"
-              className="block mb-2  font-medium text-right text-primaryTitle md:text-xl font-sans"
-            >
-              السعر
-            </label>
-            <textarea
-              required
-              type="text"
-              id="content-ar"
-              className="block w-full p-2 rounded-lg text-xs focus:border  focus:border-primaryTitle focus:outline-none text-right bg-white2 "
-              value={newsBody}
-              onChange={(e) => setnewsBody(e.target.value)}
-            />
-          </div>
+          <div className="md:flex justify-end mb-5">
+            <div className="md:w-[28%] order-1">
+              <label
+                htmlFor="content-ar"
+                className="block mb-2  font-medium text-right text-primaryTitle md:text-xl font-sans"
+              >
+                السعر
+              </label>
+              <input
+                required
+                type="text"
+                id="content-ar"
+                className="block w-full p-2 rounded-lg text-xs focus:border focus:border-primaryTitle focus:outline-none text-right bg-white2"
+                value={newsBody}
+                onChange={(e) => setnewsBody(e.target.value)}
+              />
+            </div>
 
-          {/* English News Content */}
-
-          <div className="md:flex mb-5 space-x-4 justify-end">
-            <div className="md:w-1/4">
+            <div className="md:w-1/4 mr-4">
               <label
                 htmlFor="additional-params"
                 className="block mb-2 font-medium text-right text-primaryTitle md:text-xl font-sans"
               >
                 نوع العملة
               </label>
+              <select
+                id="countries"
+                dir="rtl"
+                className="p-2 border border-primaryTitle font-bold text-sm rounded-lg block w-full text-right"
+              >
+                <option>جنية مصري</option>
+                {/* <option>Canada</option>
+      <option>France</option>
+      <option>Germany</option> */}
+              </select>
+            </div>
+          </div>
+
+
+          
+        </form>
+
+        <p className="text-backbutton text-right  font-bold">
+        تفاصيل الرحلات
+        </p>
+        <form
+          className="rounded-3xl mx-auto  pl-10 ml-8 pt-5  pb-5  "
+        //   onSubmit={handleAddNews}
+        >
+          <div className="  ">
+            <div className=" rounded-lg  mb-2 order-1 justify-end ">
+              <label
+                htmlFor="title-en"
+                className="block mb-2 font-medium text-right text-primaryTitle md:text-xl font-sans"
+              >
+               إسم المكان
+              </label>
               <input
                 required
                 type="text"
-                id="additional-params"
-                className="block w-full p-2  shadow rounded-lg text-xs focus:border  focus:border-primaryTitle focus:outline-none text-right bg-white2"
-                value={Params}
-                // onChange={handleInputChange}
+                id="title-en"
+                className="block shadow w-full p-2 rounded-lg text-xs focus:border focus:border-primaryTitle focus:outline-none text-right bg-white2 h-10"
+                value={newsTitleEn}
+                onChange={(e) => setnewsTitleEn(e.target.value)}
+              />
+            </div>
+            <div className="  md:w-[100%] w-[50%] text-2xl">
+              <label
+                htmlFor="another-input"
+                className="block mb-2 font-medium text-right text-primaryTitle md:text-xl font-sans"
+              >
+                الوصف
+              </label>
+              <input
+                required
+                type="text"
+                id="another-input"
+                className="block shadow w-full p-2 rounded-lg text-xs focus:border focus:border-primaryTitle focus:outline-none text-right bg-white2 h-10"
               />
             </div>
           </div>
+          <div className="md:flex justify-end mb-5">
+            <div className="md:w-[28%] ">
+              <label
+                htmlFor="content-ar"
+                className="block mb-2  font-medium text-right text-primaryTitle md:text-xl font-sans"
+              >
+                المميزات
+              </label>
+              <input
+                required
+                type="text"
+                id="content-ar"
+                className="block w-full p-2 rounded-lg text-xs focus:border focus:border-primaryTitle focus:outline-none text-right bg-white2"
+                value={newsBody}
+                onChange={(e) => setnewsBody(e.target.value)}
+              />
+            </div>
+
+            <div className="md:w-1/4 ml-4 order-1">
+              <label
+                htmlFor="additional-params"
+                className="block mb-2 font-medium text-right text-primaryTitle md:text-xl font-sans"
+              >
+               عدد الركاب - الاوتوبيس
+              </label>
+              <select
+                id="countries"
+                dir="rtl"
+                className="p-2 border border-primaryTitle font-bold text-sm rounded-lg block w-full text-right"
+              >
+                <option>جنية مصري</option>
+                {/* <option>Canada</option>
+      <option>France</option>
+      <option>Germany</option> */}
+              </select>
+            </div>
+          </div>
+
 
           <div className="m-5 flex justify-end">
             <button
               type="submit"
               className="flex h-10 mr-[-20px] rounded-md bg-primaryTitle font-sans md:pl-40 md:pr-40 pr-4 pl-4 py-1.5 text-base font-semibold leading-6 text-white shadow-sm hover:bg-primaryTitle "
             >
-              إضافة
+              نشر
               <svg
                 width="22"
                 height="22"

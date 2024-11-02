@@ -7,6 +7,7 @@ import SignIn from "../Travel-Admin/PagesAdmin/SignIn";
 import Sidebar from "../Travel-Admin/ComponentAdmin/Sidebar";
 import AddTravel from "../Travel-Admin/PagesAdmin/AddTravel";
 import Paymentadmin from "../Travel-Admin/PagesAdmin/PaymentAdmin";
+import TravelersData from "../Travel-Admin/PagesAdmin/TravelersData";
 
 // import { Provider } from "react-redux";
 // import store from "../Components/ReduxStore";
@@ -25,6 +26,7 @@ function routes() {
         <Route path="/:lang?/payment" element={<PaymwntPage />} />
         <Route path="/:lang?/add-travel" element={<AddTravel />} />
         <Route path="/:lang?/payment-admin" element={<Paymentadmin />} />
+        <Route path="/:lang?/travelers-data" element={<TravelersData />} />
       </Routes>
     </Router>
     // </Provider>

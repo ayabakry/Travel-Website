@@ -176,7 +176,7 @@ function Sidebar() {
             </li>
             <li>
               <a
-                href="/all-annoncement"
+                href="/control-travel"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-black  "
               >
                 <svg

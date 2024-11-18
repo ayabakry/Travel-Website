@@ -5,12 +5,14 @@ import Routess from './routess/routess';
 
 import reportWebVitals from './reportWebVitals';
 import Sidebar from './Travel-Admin/ComponentAdmin/Sidebar';
+import Footer from './Travel-User/Components/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
  <Routess /> 
     {/* <Sidebar/> */}
+    <Footer/>
   </React.StrictMode>
 );
 

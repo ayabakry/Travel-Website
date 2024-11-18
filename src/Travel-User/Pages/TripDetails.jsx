@@ -281,35 +281,58 @@ function TripDetails({ totalSeats }) {
               </div>
 
               <br></br>
-              <div className="flex justify-end bg-gray rounded-lg">
-                <div
-                  className={`grid gap-y-2 gap-x-40 justify-center mr-6 md:text-xl p-4  ${
-                    isSmallBus || isLargeBus ? "grid-cols-2" : "grid-cols-2"
-                  }`}
-                >
-                  {seats.map((seat, index) => {
-                    const seatClass =
-                      seat.status === "available"
-                        ? "bg-primaryTitle text-white" // Blue background for available seats
-                        : seat.status === "pending"
-                        ? "bg-orange-500 text-white" // Orange background for pending seats
-                        : "border border-2 border-primaryTitle bg-white text-primaryTitle"; // Gray background for selected seats
+              <div className="flex flex-col items-center bg-gray-200 p-4 rounded-lg">
+  {/* Top Section */}
+  <div
+    className={`grid  gap-y-4  ${
+      totalSeats >= 20
+        ? "grid-cols-4 gap-x-4" // Show 4 columns for larger buses
+        : "grid-cols-2" // Show 2 columns for smaller buses
+    } w-full justify-center`}
+  >
+    {seats.slice(0, totalSeats - 4).map((seat, index) => {
+      const seatClass =
+        seat.status === "available"
+          ? "border border-2 border-primaryTitle bg-white text-primaryTitle"
+          : seat.status === "pending"
+          ? "bg-orange-500 text-white"
+          : "bg-primaryTitle text-white";
 
-                    return (
-                      <React.Fragment key={`seat-${index}`}>
-                        <div
-                          className={`flex items-center justify-center m-2 w-12 h-12 rounded-md cursor-pointer font-bold ${seatClass}`}
-                          onClick={() => handleSeatClick(seat.number)}
-                        >
-                          {seat.number}
-                        </div>
-                        {/* Aisle space after every 2 seats */}
-                        {/* {(index + 1) % 2 === 0 && <div className="w-[30px] h-1" />} */}
-                      </React.Fragment>
-                    );
-                  })}
-                </div>
-              </div>
+      return (
+        <div
+          key={`seat-top-${index}`}
+          className={`flex items-center justify-center m-2 w-12 h-12 rounded-md cursor-pointer font-bold ${seatClass}`}
+          onClick={() => handleSeatClick(seat.number)}
+        >
+          {seat.number}
+        </div>
+      );
+    })}
+  </div>
+
+  {/* Bottom Section */}
+  <div className="flex mt-4 justify-center">
+    {seats.slice(totalSeats - 4).map((seat, index) => {
+      const seatClass =
+        seat.status === "available"
+          ? " border border-2 border-primaryTitle bg-white text-primaryTitle"
+          : seat.status === "pending"
+          ? "bg-orange-500 text-white"
+          : "bg-primaryTitle text-white";
+
+      return (
+        <div
+          key={`seat-bottom-${index}`}
+          className={`flex items-center justify-center m-2 w-12 h-12 rounded-md cursor-pointer font-bold ${seatClass}`}
+          onClick={() => handleSeatClick(seat.number)}
+        >
+          {seat.number}
+        </div>
+      );
+    })}
+  </div>
+</div>
+
 
               {/* <button className="mt-4 px-4 py-2 bg-red-600 text-white rounded-md font-semibold hover:bg-red-700">
             Confirm Booking

@@ -24,7 +24,7 @@ function routes() {
         <Route path="/:lang?/sign-in" element={<SignIn />} />
         <Route
           path="/:lang?/trip-details"
-          element={<TripDetails totalSeats={14} />}
+          element={<TripDetails totalSeats={20} />}
         />
         <Route path="/:lang?/payment" element={<PaymwntPage />} />
         <Route path="/:lang?/add-travel" element={<AddTravel />} />

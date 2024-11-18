@@ -283,14 +283,10 @@ function TripDetails({ totalSeats }) {
               <br></br>
               <div className="flex flex-col items-center bg-gray-200 p-4 rounded-lg">
   {/* Top Section */}
-  <div
-    className={`grid  gap-y-4  ${
-      totalSeats >= 20
-        ? "grid-cols-4 gap-x-4" // Show 4 columns for larger buses
-        : "grid-cols-2" // Show 2 columns for smaller buses
-    } w-full justify-center`}
-  >
-    {seats.slice(0, totalSeats - 4).map((seat, index) => {
+  <div className="w-full flex justify-center gap-8">
+  {/* Left Section */}
+  <div className="grid grid-cols-2 gap-y-4 gap-x-4">
+    {seats.slice(0, Math.ceil((totalSeats - 4) / 2)).map((seat, index) => {
       const seatClass =
         seat.status === "available"
           ? "border border-2 border-primaryTitle bg-white text-primaryTitle"
@@ -300,7 +296,7 @@ function TripDetails({ totalSeats }) {
 
       return (
         <div
-          key={`seat-top-${index}`}
+          key={`seat-left-${index}`}
           className={`flex items-center justify-center m-2 w-12 h-12 rounded-md cursor-pointer font-bold ${seatClass}`}
           onClick={() => handleSeatClick(seat.number)}
         >
@@ -310,8 +306,32 @@ function TripDetails({ totalSeats }) {
     })}
   </div>
 
+  {/* Right Section */}
+  <div className="grid grid-cols-2 gap-y-4 gap-x-4 ">
+    {seats.slice(Math.ceil((totalSeats - 4) / 2), totalSeats - 4).map((seat, index) => {
+      const seatClass =
+        seat.status === "available"
+          ? "border border-2 border-primaryTitle bg-white text-primaryTitle"
+          : seat.status === "pending"
+          ? "bg-orange-500 text-white"
+          : "bg-primaryTitle text-white";
+
+      return (
+        <div
+          key={`seat-right-${index}`}
+          className={`flex items-center justify-center m-2 w-12 h-12 rounded-md cursor-pointer font-bold ${seatClass}`}
+          onClick={() => handleSeatClick(seat.number)}
+        >
+          {seat.number}
+        </div>
+      );
+    })}
+  </div>
+</div>
+
+
   {/* Bottom Section */}
-  <div className="flex mt-4 justify-center">
+  <div className="flex mt-4 justify-center bg-gray2 rounded-lg ">
     {seats.slice(totalSeats - 4).map((seat, index) => {
       const seatClass =
         seat.status === "available"
@@ -323,7 +343,7 @@ function TripDetails({ totalSeats }) {
       return (
         <div
           key={`seat-bottom-${index}`}
-          className={`flex items-center justify-center m-2 w-12 h-12 rounded-md cursor-pointer font-bold ${seatClass}`}
+          className={`flex items-center justify-center m-2 w-12 h-12 rounded-md cursor-pointer font-bold  ${seatClass}`}
           onClick={() => handleSeatClick(seat.number)}
         >
           {seat.number}

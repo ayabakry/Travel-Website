@@ -15,7 +15,8 @@ module.exports = {
         gray:"#F5F5F5",
         placeholder:"#DADADA",
         backbutton:"#F76570",
-        gray1:"#F3F3F3"
+        gray1:"#F3F3F3",
+        gray2:"#CCCCCC"
       },
     },
   },

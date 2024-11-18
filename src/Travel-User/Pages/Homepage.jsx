@@ -1,91 +1,39 @@
-import { useEffect, useState } from "react";
+import ExampleofTravels from "../Components/ExampleofTravels";
 import Travelcard from "../Components/Travelcard";
-import homepageimg1 from "../Imgs/Cairo.png";
-import homepageimg2 from "../Imgs/Sinai.png";
-import homepageimg3 from "../Imgs/Alex.png";
-import homepageimg4 from "../Imgs/Aswan.png";
-import homepageimg5 from "../Imgs/Giza.png";
-import homepageimg6 from "../Imgs/Sharm.png";
-
+import homepageimg1 from "../Imgs/homepage.png";
+import logoo from "../Imgs/logo.png"
 function Homepage(){
-    const images = [homepageimg1, homepageimg2,homepageimg3,homepageimg4,homepageimg5,homepageimg6];
-
-    const [currentIndex, setCurrentIndex] = useState(1); // Start at index 1 (the first real image)
-    const [isTransitioning, setIsTransitioning] = useState(true);
-  
-    const handleNextSlide = () => {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-    };
-  
-    // Automatically change the slide every 3 seconds
-    useEffect(() => {
-      const interval = setInterval(handleNextSlide, 3000);
-  
-      return () => clearInterval(interval); // Cleanup interval on component unmount
-    }, []);
-  
-    // Reset the slider position when it reaches the duplicated slides
-    const handleTransitionEnd = () => {
-      if (currentIndex === images.length + 1) {
-        setIsTransitioning(false); // Disable animation
-        setCurrentIndex(1); // Jump back to the real first image
-      } else if (currentIndex === 0) {
-        setIsTransitioning(false); // Disable animation
-        setCurrentIndex(images.length); // Jump to the real last image
-      } else {
-        setIsTransitioning(true); // Enable animation for normal slides
-      }
-    };
     return(
         <>
-<div className="relative w-full overflow-hidden ">
-      <div
-        className={`flex ${isTransitioning ? "transition-transform duration-1000" : ""}`}
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        onTransitionEnd={handleTransitionEnd}
-      >
-        {/* Duplicate last image */}
-        <img
-          src={images[images.length - 1]}
-          alt="Duplicate of Last Slide"
-          className="w-full md:h-screen object-cover flex-shrink-0"
-        />
+<div className="relative h-screen">
+  {/* Logo */}
+  <div className="absolute top-4 left-4 z-10">
+    <img src={logoo} alt="Logo" className="h-16 w-auto" />
+  </div>
 
-        {/* Render all images */}
-        {images.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt={`Slide ${index + 1}`}
-            className="w-full md:h-[680px] object-cover flex-shrink-0"
-          />
-        ))}
+  {/* Background Image */}
+  <img
+    src={homepageimg1}
+    alt="Background"
+    className="w-full h-screen object-cover"
+  />
 
-        {/* Duplicate first image */}
-        <img
-          src={images[0]}
-          alt="Duplicate of First Slide"
-          className="w-full md:h-[680px] object-cover flex-shrink-0"
-        />
-      </div>
+  {/* Centered Text */}
+  <div className="absolute inset-0 flex items-center justify-end z-20 pr-8">
+  <div className="text-right">
+    <h3 className="text-white text-4xl md:text-6xl font-bold mb-4">
+      نقوم بتقديم مزيد من خدمات الرحلات
+    </h3><br></br>
+    <h5 className="text-white text-2xl ">
+      يسعدنا اهتمامكم وانبساطكم
+    </h5>
+  </div>
+</div>
 
-      {/* Navigation Dots */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index + 1)} // Account for the duplicate image
-            className={`w-3 h-3 rounded-full ${
-              currentIndex === index + 1 ||
-              (currentIndex === images.length + 1 && index === 0) // Handle the loop case
-                ? "bg-blue-500"
-                : "bg-gray-300"
-            }`}
-          ></button>
-        ))}
-      </div>
-    </div>
+</div>
+
 <Travelcard/>
+<ExampleofTravels/>
 </>
 
 );

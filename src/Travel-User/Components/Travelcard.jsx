@@ -4,7 +4,7 @@ import imgcard from "../Imgs/travelcard.png";
 function Travelcard() {
   return (
     <>
-      <div className="w-full md:max-w-[90%]">
+      <div className="w-full pr-10">
         <h1 className="text-right px-12 text-3xl mt-20 text-price mb-[-10px] font-bold">
           الرحلات
         </h1>

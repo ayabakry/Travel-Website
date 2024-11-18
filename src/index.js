@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
  <Routess /> 
-    <Sidebar/>
+    {/* <Sidebar/> */}
   </React.StrictMode>
 );
 
